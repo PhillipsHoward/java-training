@@ -1,24 +1,43 @@
-## Java Training
+# Java Training 
 
-### 1. Git
+Java Training est une série de quêtes qui vont te permettre de t’entraîner au développement Java. Tu auras la possibilité de tester automatiquement le code de chacun des exercices.
 
-#### a. En cours de nouveau projet
+## Objectifs
+
+* Tester son code
+* Savoir lire des logs d'erreur
+
+## Etapes
+
+### Initialisation de ton dépôt
+
+#### 1. Initialiser un nouveau projet
 
 Afin de réaliser l'exercice, fait un *fork* de ce projet sur ton compte *GitHub*, puis *clone* le *fork* sur ton dépôt local.
 
-#### b. Tu as déjà un *fork*
+#### 2. Tu as déjà un *fork*
 
-Si tu as déjà *forké* le dépôt et que tu l'as récupéré en local, tu peux le mettre à jour de la façon suivante :
+Si tu as déjà *fork* le dépôt et que tu l'as récupéré en local, tu peux le mettre à jour.
 
+D'abord, si tu ne l'as pas encore fait, relie ton dépôt local *GitHub* d'origine (pas le *fork*) en *upstream* :
+```bash
+git remote add upstream https://github.com/WildCodeSchool/java-training.git
+```
+
+Ensuite récupère les modifications de l'*upstream* et fusionne-les sur ton dépôt local :
 ```bash
 git fetch upstream
 git checkout master
 git merge upstream/master
 ```
 
-> Vérifie que tu as tout bien add/commit/push avant de faire ces commandes !
+> Vérifie que tu as tout bien add/commit/push sur ton dépôt avant de faire ces commandes !
 
-### 2. Arborescence et tester.sh
+#### Ressources
+
+* [Dépôt Java Training](https://github.com/WildCodeSchool/java-training/)
+
+### Arborescence du projet
 
 Première étape avant de commencer l'exercice : vérifies que tout est bien en place pour travailler.
 
@@ -34,16 +53,18 @@ Si tu fais exécutes la commande "tree" dans ton dépôt, tu devrais avoir l'arb
 ├── src
 │   ├── exercices
 │   │   └── Primitives.java
+│   │   └── ...
 │   └── tests
 │       ├── MainTest.java
 │       └── PrimitivesTest.java
+│       └── ...
 └── tester.sh
 
 ```
 
 Le premier fichier qui va t'intéresser est `tester.sh`. C'est lui qui va se charger de la compilation et de l'exécution des tests.
 
-Pour tester si le script fonctionne, place toi dans le dossier `java-training` et entre la commande :
+Pour tester si le script fonctionne, place-toi dans le dossier `java-training` et écrit la commande :
 
 ``` bash
 ./tester.sh
@@ -70,18 +91,19 @@ Suivons les indications :
 
 Tu vas voir apparaître un tas d'erreurs, c'est normal : ton but est de réparer tout ça !
 
-### 3. Les sources
 
-Chaque exercice va être contenu dans un fichier source, contenu dans le dossier `src/exercices/`.
+### Editer les sources de l'exercice
+
+Chaque exercice va être contenu dans un fichier source, présent dans le dossier `src/exercices/`.
 
 Commence par éditer le fichier `src/exercices/Primitives.java`.
 
-Dans ce fichier tu vas trouver une série d'action à réaliser. Quand tu penses avoir terminé, lance la commande correspondante :
+Tu vas y trouver une série d'actions à réaliser. Quand tu penses avoir terminé, lance la commande correspondante :
 ```bash
 ./tester.sh Primitives
 ```
 
-Une série de tests va être exécutée sur ton code, et soit des erreurs seront relevées (et il faudra les corriger en regardant les logs), soit tu auras le super message suivant :
+Une série de tests va être exécutée sur ton code. Soit des erreurs y seront relevées (et il faudra les corriger en regardant les logs), soit tu obtiendras le message suivant :
 ```bash
 JUnit version 4.12
 .....
@@ -91,6 +113,18 @@ OK (5 tests)
 
 ```
 
-### 4. Résultat
 
-Quand ton code passe tous les tests, add/commit/push et partage ton dépôt *GitHub* en solution de la quête !
+## Challenge
+
+### Envoie ta solution
+
+1. Créé un *fork* du dépôt 
+1. Modifie et teste ton code avec `./tester.sh Exercice`
+2. Quand ton code passe tous les tests, add/commit/push sur ton *fork*
+3. Partage ton dépôt *GitHub* en solution de la quête
+
+### Critères de validation
+
+* Le code se compile sans erreur
+* Le code passe toutes les validations attendues
+* Le code respecte les conventions de Java (indentation, nommage de variable, classe, méthodes, etc...)
